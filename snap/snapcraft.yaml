@@ -1,0 +1,25 @@
+name: emu2
+version: '0'
+summary: emu2 - A simple text-mode x86 + DOS emulator
+description: |
+  This is a simple DOS emulator for the Linux text console, supporting basic
+  DOS system calls and console I/O.
+
+grade: stable
+confinement: strict
+
+apps:
+  emu2:
+    command: emu2
+    plugs:
+      - home
+
+parts:
+  emu2:
+    plugin: make
+    source: https://github.com/dmsc/emu2.git
+    build-packages:
+      - gcc
+    override-build: |
+      make
+      cp emu2 README.md LICENSE $SNAPCRAFT_PART_INSTALL
