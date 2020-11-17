@@ -1,10 +1,10 @@
 name: emu2
-version: '0'
+version: 'master'
 summary: emu2 - A simple text-mode x86 + DOS emulator
 description: |
   This is a simple DOS emulator for the Linux text console, supporting basic
   DOS system calls and console I/O.
-
+base: core20
 grade: stable
 confinement: strict
 
@@ -13,6 +13,7 @@ apps:
     command: emu2
     plugs:
       - home
+      - removable-media
 
 parts:
   emu2:
