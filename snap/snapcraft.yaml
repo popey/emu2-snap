@@ -1,5 +1,5 @@
 name: emu2
-version: 'master'
+adopt-info: emu2
 summary: emu2 - A simple text-mode x86 + DOS emulator
 description: |
   This is a simple DOS emulator for the Linux text console, supporting basic
@@ -21,6 +21,9 @@ parts:
     source: https://github.com/dmsc/emu2.git
     build-packages:
       - gcc
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags)"
     override-build: |
       make
       cp emu2 README.md LICENSE $SNAPCRAFT_PART_INSTALL
