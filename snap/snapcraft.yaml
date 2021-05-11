@@ -23,7 +23,7 @@ parts:
       - gcc
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags)"
+      snapcraftctl set-version "$(git describe --tags | tr -d 'v')"
     override-build: |
       make
       cp emu2 README.md LICENSE $SNAPCRAFT_PART_INSTALL
