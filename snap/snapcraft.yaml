@@ -31,7 +31,7 @@ parts:
         git fetch
         git checkout "${last_committed_tag}"
       fi
-      snapcraftctl set-version "$(git describe --tags | tr -d 'v')"
+      snapcraftctl set-version "$(git describe --tags)"
     override-build: |
       make
       cp emu2 README.md LICENSE $SNAPCRAFT_PART_INSTALL
